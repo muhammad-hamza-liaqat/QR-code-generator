@@ -2,21 +2,23 @@ import qr from "qrcode";
 import qrcodeTerminal from "qrcode-terminal";
 
 const GenerateQRcode = async (req, res) => {
-    // static link
-    const link = "https://github.com/muhammad-hamza-liaqat";
+  // static link
+  const link = "https://github.com/muhammad-hamza-liaqat";
 
-    if (!link) {
-        return res.status(400).json({ status: 400, error: "Link is required to generate QR code!" });
-    }
+  if (!link) {
+    return res
+      .status(400)
+      .json({ status: 400, error: "Link is required to generate QR code!" });
+  }
 
-    try {
-        // Generate QR code
-        const qrImage = await qr.toDataURL(link);
+  try {
+    // Generate QR code
+    const qrImage = await qr.toDataURL(link);
 
-        // display the qr code in the terminal as well
-        qrcodeTerminal.generate(link, { small: true });
-        // format, how the Qr code will be presented in the browser
-        const htmlResponse = `
+    // display the qr code in the terminal as well
+    qrcodeTerminal.generate(link, { small: true });
+    // format, how the Qr code will be presented in the browser
+    const htmlResponse = `
             <html>
             <head>
                 <title>QR Code</title>
@@ -49,11 +51,11 @@ const GenerateQRcode = async (req, res) => {
             </body>
             </html>
         `;
-        res.status(200).send(htmlResponse);
-    } catch (err) {
-        console.error("Error generating QR code:", err);
-        res.status(500).json({ status: 500, error: "Internal server error" });
-    }
+    res.status(200).send(htmlResponse);
+  } catch (err) {
+    console.error("Error generating QR code:", err);
+    res.status(500).json({ status: 500, error: "Internal server error" });
+  }
 };
 
 export { GenerateQRcode };
