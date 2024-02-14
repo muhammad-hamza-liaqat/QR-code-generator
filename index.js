@@ -1,14 +1,19 @@
-const express = require("express");
+import express from "express";
 const app = express();
-require("dotenv").config();
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import dotenv from "dotenv";
+dotenv.config();
+import bodyParser from "body-parser";
+import cors from "cors";
 
 // middlewares
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// routes
+import qrRoutes  from "./routes/qrRoutes.js";
+app.use("/api", qrRoutes);
 
 // server
 app.listen(process.env.PORT, () => {
