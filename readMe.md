@@ -1,12 +1,11 @@
-<!-- project readMe.md -->
+<!-- project README.md -->
 
-# project Introduction
-this node application will generate the qr code for the input the user passed
+# Project Introduction
+This Node application will generate the QR code for the input the user passed.
 
-## npm modules
--> qr-code
--> inquirer
+## NPM Modules
+- qr-code
+- inquirer
 
-
-### end point
+### End Point
 [generate-qr](http://localhost:3000/api/generate-qr)
