@@ -5,7 +5,7 @@ This Node application will generate the QR code for the input the user passed.
 
 ## NPM Modules
 - qr-code
-- inquirer
+- qrcodeTerminal
 
 ### End Point
 [generate-qr](http://localhost:3000/api/generate-qr)
